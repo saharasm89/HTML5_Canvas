@@ -5,20 +5,24 @@
 <style>
 canvas {
     border:1px solid #d3d3d3;
-    background-image: #f1f1f1;
+    background-color: #f1f1f1;
 }
 </style>
 </head>
 <body onload="startGame()">
 
-<script>s
-var myMainCharacter;
+<script>
+var myGamePiece;
 
 function startGame() {
-    myMainCharacter = new component(30, 30, "assets/mouse.png", 10, 120, "image");
+    // Loading the game characters.
+    myGamePiece = new component(30, 30, "assets/mouse.png", 225, 225, image);
     myGameArea.start();
 }
 
+
+
+// Loads the Canvas window
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -45,7 +49,7 @@ var myGameArea = {
     }
 }
 
-function component(width, height, image, x, y, type) {
+function component(width, height, color, x, y, type) {
 
     this.type = type;
     this.width = width;
@@ -60,8 +64,9 @@ function component(width, height, image, x, y, type) {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
-        ctx.fillStyle = image;
-        ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
+        //ctx.fillStyle = color;
+        //ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
+        ctx.drawImage(img,this.x,this.y);
         ctx.restore();    
     }
     this.newPos = function() {
@@ -73,18 +78,18 @@ function component(width, height, image, x, y, type) {
 
 function updateGameArea() {
     myGameArea.clear();
-    myMainCharacter.moveAngle = 0;
-    myMainCharacter.speed = 0;
-    if (myGameArea.keys && myGameArea.keys[37]) {myMainCharacter.moveAngle = -1; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myMainCharacter.moveAngle = 1; }
-    if (myGameArea.keys && myGameArea.keys[38]) {myMainCharacter.speed= 1; }
-    if (myGameArea.keys && myGameArea.keys[40]) {myMainCharacter.speed= -1; }
-    myMainCharacter.newPos();
-    myMainCharacter.update();
+    myGamePiece.moveAngle = 0;
+    myGamePiece.speed = 0;
+    if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.moveAngle = -1; }
+    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.moveAngle = 1; }
+    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speed= 1; }
+    if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speed= -1; }
+    myGamePiece.newPos();
+    myGamePiece.update();
 }
 </script>
 
-<p>Make sure the gamearea has focus, and use the arrow keys to move the assets/mouse.png square around.</p>
+<p>Make sure the gamearea has focus, and use the arrow keys to move the red square around.</p>
 
 </body>
 </html>
