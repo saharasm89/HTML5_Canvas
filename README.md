@@ -1,3 +1,13 @@
-# HTML5_Canvas
-Hello World
-https://prod.liveshare.vsengsaas.visualstudio.com/join?D8D35A7DA81ACBDD8410CC7FCF72C31A01DC
+You need to submit a game the last Sunday night of the course, and then demo it in class the week of finals (unless you demo your node.js project). 
+This game is simple HTML/CSS/JS so you can edit it on a windows system using code and just run it in a browser.  
+No node, no Github, but it must run on Azure.  You have 4 choices, each a little harder than then prior.
+
+Using HTML Canvas to create a game
+
+
+GAME IDEA:
+Type: MAZE 
+
+Description: Character is a mouse, navigating through a maze to find cheese under a specified amount of time
+            If character touches the walls they will be teleported back to the start. 
+
