@@ -107,7 +107,7 @@
                    margin-top: 0px; 
                    margin-bottom: 10px">Mousey Maze</h1>
         <div id="maze">
-            <p style="text-align: center;margin-bottom: 10px">Get the cheese within 30 seconds!</p>
+            <p style="text-align: center;margin-bottom: 10px">Get the cheese before the time runs out!</p>
             <div id="c" style="margin-left:auto; margin-right:auto;margin-bottom: 10px;text-align: center;width: 10%;font-size: large"></div>
 
             <canvas id="canvas" width="523" height="523" style="margin-left:auto; margin-right:auto">
@@ -418,7 +418,6 @@
                     for (var i = 0; i < 2 * this.N + 1; i++) {
                         for (var j = 0; j < 2 * this.M + 1; j++) {
                             if (this.Board[i][j] != ' '){//} && this.Board[i][j] != '&') {
-                                // Wall Color
                                 this.ctx.fillStyle = "#000000";
                                 this.ctx.fillRect(scale * i, scale * j, scale, scale);
                             }
@@ -427,18 +426,17 @@
                             }
                     }
                     x = randomChoice(temp)
-                //    console.log(temp)
+                    //console.log(temp)
                     this.Board[x[0]][x[1]] = '&'
-
-
-
+                    
+                    
                     // Initial drawing for Main Character
-                    //var imgFace = document.getElementById("mouse");
-                    //this.ctx.drawImage(imgFace, scale* x[0], scale * x[1], scale, scale);
-                    this.ctx.fillStyle = "#58DF13";
+                    this.ctx.fillStyle = "#5876E2";
                     this.ctx.fillRect(scale* x[0], scale * x[1], scale, scale);
-                
+    
+
                 }
+
             };
 
             this.checkPos = function (id) {
@@ -462,19 +460,12 @@
 //Main Character
             this.move =  function (a,b) {
                 var scale = this.S;
-                var imgFace = document.getElementById("mouse");
                 this.ctx = this.canvas.getContext('2d');
-                //this.ctx.fillStyle = "#58DF13";
-                //this.ctx.fillRect(scale * a, scale * b, scale, scale);
-                this.ctx.drawImage(imgFace, scale * a, scale * b, scale, scale);
+                var imgMouse = new Image();
+                imgMouse.src = 'assets/mouse.png';
+                this.ctx.drawImage(imgMouse, scale * a, scale * b, scale, scale);
                 this.Board[a][b] = '&'
-
-                
-               //context.drawImage(imgFace, x, y);
-                
             }
-
-
 
             this.moveup = function (id) {
                 cord = this.checkPos(id);
@@ -555,8 +546,6 @@
             //    console.log(cord)
                 if ((i == 19 && j== 20) || (i==1 && j==0)) {
                     modelfunwin();
-         //           alert("YOU WIN, CONGRATULATIONS!");
-                  //
                     return 1
                 }
                 return 0
@@ -565,7 +554,6 @@
             this.getMoves = function () {
                 return this.moves;
             }
-
         };
 
         m = new maze(10 , 10);
@@ -583,6 +571,6 @@
     </script>
 
 </section>
-<img id="mouse" src="assets/mouse.png">
+
 </body>
 </html>
