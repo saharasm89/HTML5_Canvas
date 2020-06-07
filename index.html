@@ -13,9 +13,9 @@
             font-size: xx-large;
         }
         #heading{ margin: 0 auto}
-        #canvas { background: #99afa3; display: block; margin: 0 auto; }
-        #c { background: #eeeeee; display: block; margin: 0 auto; }
-        #timerel { background: #eeeeee; display: block; margin: 0 auto; }
+        #canvas { background: #C42902; display: block; margin: 0 auto; }
+        #c { background: #C42902; display: block; margin: 0 auto; }
+        #timerel { background: #C42902; display: block; margin: 0 auto; }
     </style>
     <style>
         /* The Modal (background) */
@@ -76,8 +76,8 @@
 
         .modal-header {
             padding: 2px 16px;
-            background-color: #41d9f4;
-            color: white;
+            background-color: #5876E2;
+            color: black;
             text-align: center;
             height : 50%;
         }
@@ -86,8 +86,8 @@
 
         .modal-footer {
             padding: 2px 16px;
-            background-color:#f4bc42;
-            color: white;
+            background-color:#5876E2;
+            color: black;
             text-align: center;
             height: 50%;
         }
@@ -100,7 +100,7 @@
     <div id="wrapper" style="margin-left:auto; margin-right:auto;">
         <h1 id="heading"
             // Banner colors
-            style="background-color: #E5E8FE; 
+            style="background-color: #C42902; 
                    text-decoration-style: solid; 
                    color: #000000; 
                    width: 40%; 
@@ -156,7 +156,7 @@
             console.log("func called")
             modal.style.display = "block";
             x = document.querySelector(".gamehead");
-            x.textContent = "Congrats! You Win"
+            x.textContent = "Congrats! You got the cheese!"
 
         }
 
@@ -208,6 +208,7 @@
         }
 
         window.onload = function () {
+            //countdown timer
             twominutes = 30;
             x = document.querySelector("#timerel");
             startTimer(twominutes,x)
