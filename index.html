@@ -92,10 +92,10 @@
             height: 50%;
         }
     </style>
-
-
+    
 </head>
 <body>
+    
 <section>
     <div id="wrapper" style="margin-left:auto; margin-right:auto;">
         <h1 id="heading"
@@ -410,6 +410,7 @@
             this.draw_canvas = function (id) {
                 this.canvas = document.getElementById(id);
                 var scale = this.S;
+                
                 temp = []
                 if (this.canvas.getContext) {
                     this.ctx = this.canvas.getContext('2d');
@@ -428,9 +429,15 @@
                     x = randomChoice(temp)
                 //    console.log(temp)
                     this.Board[x[0]][x[1]] = '&'
+
+
+
                     // Initial drawing for Main Character
+                    //var imgFace = document.getElementById("mouse");
+                    //this.ctx.drawImage(imgFace, scale* x[0], scale * x[1], scale, scale);
                     this.ctx.fillStyle = "#58DF13";
                     this.ctx.fillRect(scale* x[0], scale * x[1], scale, scale);
+                
                 }
             };
 
@@ -455,11 +462,19 @@
 //Main Character
             this.move =  function (a,b) {
                 var scale = this.S;
+                var imgFace = document.getElementById("mouse");
                 this.ctx = this.canvas.getContext('2d');
-                this.ctx.fillStyle = "#58DF13";
-                this.ctx.fillRect(scale * a, scale * b, scale, scale);
+                //this.ctx.fillStyle = "#58DF13";
+                //this.ctx.fillRect(scale * a, scale * b, scale, scale);
+                this.ctx.drawImage(imgFace, scale * a, scale * b, scale, scale);
                 this.Board[a][b] = '&'
+
+                
+               //context.drawImage(imgFace, x, y);
+                
             }
+
+
 
             this.moveup = function (id) {
                 cord = this.checkPos(id);
@@ -566,11 +581,8 @@
 
         //addEvents();
     </script>
-    <script>
-
-    </script>
-
 
 </section>
+<img id="mouse" src="assets/mouse.png">
 </body>
 </html>
